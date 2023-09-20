@@ -7,7 +7,7 @@ public class SwitchTest {
         String day = "sun";
 
         switch (day.toLowerCase().trim()){
-            case "sun":
+            case "sun": case "su": case "sund":
                 System.out.println("Sunday");
                 break;
             case "mon":

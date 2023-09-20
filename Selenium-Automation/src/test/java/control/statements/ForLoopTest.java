@@ -3,8 +3,8 @@ package control.statements;
 public class ForLoopTest {
 
     public void forLoopExample(){
-        for (int i=0;i<10;i++){
-            System.out.println("Iteration is : " + i);
+        for (int i=0;i<10;i++){ // i value will become 2
+            System.out.println("Iteration is : " + i); //Iteration is 0
         }
     }
 
