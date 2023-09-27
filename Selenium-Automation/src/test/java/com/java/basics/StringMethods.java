@@ -13,7 +13,7 @@ public class StringMethods {
 		StringBuilder builder1 = new StringBuilder("john");
 		System.out.println(builder1.toString());
 		System.out.println(builder1.hashCode());
-		builder1.append(" smith");
+		builder1.append(" cena");
 		System.out.println(builder1.toString());
 		System.out.println(builder1.hashCode());
 		
