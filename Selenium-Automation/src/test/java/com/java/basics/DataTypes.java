@@ -1,10 +1,34 @@
 package com.java.basics;
 
 public class DataTypes {
+	
+	// user defined non static method or java concrete method
+	void m1() {
+		System.out.println("This is method m1..!");
+	}
+	
+	// user defined static method
+	public static void m2() {
+		System.out.println("This is method m2..!");
+	}
 
 	public static void main(String[] args) {
 		//Primitive data types - byte, short, int, long, float, double, char & boolean
 		byte b=122;
+	    Byte by = Byte.valueOf(b); // Converting byte (primitive) into Byte (Object) explicitly
+	    Byte by1 = b; // Autoboxing --> Converting byte (primitive) into Byte (Object) implicitly
+	   	    
+	    Integer a = new Integer(234);
+	    int ii = a.intValue(); // Converting Integer to int explicitly which is also called as unboxing
+	    int j=a; //// Converting Integer to int implicitly which is also called as unboxing
+	    	    
+	    // Syntax for creating an object reference for a class
+	    //Classname objRef = new Constructor();
+	    DataTypes dt = new DataTypes();
+	    dt.m1();
+	    m2();
+	    DataTypes.m2();
+	    		
 		short s = 2445;
 		int i = 3463636;
 		long l = 980980;

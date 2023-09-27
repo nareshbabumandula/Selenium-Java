@@ -4,6 +4,22 @@ public class StringMethods {
 
 	public static void main(String[] args) {
 		String sText1 = "hello";
+		System.out.println(sText1.hashCode());
+		System.out.println(sText1);
+		sText1 = "java";
+		System.out.println(sText1.hashCode());
+		System.out.println(sText1);
+		
+		StringBuilder builder1 = new StringBuilder("john");
+		System.out.println(builder1.toString());
+		System.out.println(builder1.hashCode());
+		builder1.append(" smith");
+		System.out.println(builder1.toString());
+		System.out.println(builder1.hashCode());
+		
+		StringBuilder builder = new StringBuilder(sText1);
+		System.out.println(builder.reverse());
+				
 		String sText2 = "WORLD";
 		String sText3 = "            welcome to core java training            ";
 		String sText4 = ""; // Empty String of zero length
@@ -81,6 +97,9 @@ public class StringMethods {
 		String[] students= {"sandeep","arun","Sheshu","sheenu","ravi", "swetha"};
 		System.out.println(marks.length);
 		System.out.println(students.length);
+		
+		String strText1 = "hello world this is core java online training";
+		System.out.println(strText1.replace("online", "realtime"));
 
 	}
 
