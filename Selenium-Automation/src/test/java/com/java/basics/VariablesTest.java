@@ -26,7 +26,6 @@ public class VariablesTest {
 		System.out.println(vt2.b);
 		System.out.println(VariablesTest.b);
 		m2(); // static method call
-
 	}
 
 }

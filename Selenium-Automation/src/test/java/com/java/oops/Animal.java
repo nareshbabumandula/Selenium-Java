@@ -1,6 +1,6 @@
 package com.java.oops;
 
-public class Animal{
+public class Animal {
 	
 	// Characteristics or state
 	String color;
@@ -20,5 +20,18 @@ public class Animal{
 		System.out.println(animal + " is eating..!");
 	}
 	
+	// No argument constructor
+	public Animal() {
+		System.out.println("Executing Animal class constructor..!");
+	}
+	
+	public Animal(String name) {
+		System.out.println("Executing parameterized Animal class constructor..!");
+	}
+	
+	
+	public static void main(String[] args) {
+		Animal a = new Animal();
+	}
 
 }

@@ -9,7 +9,7 @@ class MethodOverloadTest{
 		int c=a+b;
 		System.out.println("Addition of a and b is : " +c);
 	}
-
+		
 	public void addition(int a, int b){
 		int c=a+b;
 		System.out.println("Addition of a and b with integer arguments is : " +c);

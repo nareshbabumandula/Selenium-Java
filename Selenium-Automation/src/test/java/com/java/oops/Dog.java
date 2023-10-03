@@ -1,6 +1,10 @@
 package com.java.oops;
 
-public class Dog extends Pet{
+public class Dog extends Pet {
+	
+	void bite(String animal) {
+		System.out.println(animal + " can bite");
+	}
 	
 	// No argument explicit constructor
 	Dog(){
@@ -23,6 +27,7 @@ public class Dog extends Pet{
 		d1.run("Puppy");
 		d1.sleep("Puppy");
 		d1.eat("Puppy");
+		d1.bite("Jack");
 		System.out.println(d1.color);
 		System.out.println(d1.weight);
 		System.out.println(d1.legs);

@@ -17,7 +17,7 @@ class MethodOverrideTest extends MethodOverloadTest {
 
 	public static void main(String[] args){
 		MethodOverrideTest mot = new MethodOverrideTest();
-		//mot.addition();
+		mot.addition();
 		//mot.Test();
 		
 		// Upcasting

@@ -4,7 +4,7 @@ public class SwitchTest {
 
     public static void main(String[] args) {
 
-        String day = "sun";
+        String day = "SUN";
 
         switch (day.toLowerCase().trim()){
             case "sun": case "su": case "sund":
