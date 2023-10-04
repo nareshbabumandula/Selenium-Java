@@ -9,6 +9,11 @@ public class ForEachLoopTest {
             System.out.println(m);
             if(m==60) break;
         }
+        
+        String[] names = {"Suma", "nikhila", "ram", "swetha"};
+        for (String name : names) {
+			System.out.println(name);
+		}
 
     }
 
