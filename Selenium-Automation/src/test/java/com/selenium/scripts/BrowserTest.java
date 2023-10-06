@@ -2,6 +2,7 @@ package com.selenium.scripts;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -25,7 +26,7 @@ public class BrowserTest {
 			break;
 		case "edge":
 			System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver.exe");
-			driver = new ChromeDriver();
+			driver = new EdgeDriver();
 			break;
 		default:
 			System.out.println("Invalid browser..!");
