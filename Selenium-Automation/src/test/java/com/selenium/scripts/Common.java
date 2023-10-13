@@ -1,17 +1,21 @@
 package com.selenium.scripts;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 public class Common {
 	
-	@BeforeTest(groups = {"smoke"})
-	public void accessAmazonPortal() {
-		System.out.println("Executing access Amazon portal method");
+	@Parameters({"URL"})
+	@BeforeTest(groups = {"smoke", "regression"})
+	public void accessAmazonPortal(String URL) {
+		System.out.println("Executing access Amazon portal method with URL - " + URL);
+		Assert.assertEquals(true, true, "Expected value is not matched with the actual value");  // TestNG assertion
 	}
 	
 	@BeforeClass(groups = {"smoke"})

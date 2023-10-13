@@ -3,12 +3,13 @@ package com.selenium.scripts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.custom.listeners.RetryFailedTestcase;
 import com.runner.Base;
 
 public class AmazonTest extends Base{
 
 		
-	@Test(priority = 1, groups = {"smoke"})
+	@Test(priority = 1, groups = {"smoke", "regression"})
 	public void searchProduct() {
 		System.out.println("Executing Search Product method");
 	}
@@ -30,12 +31,12 @@ public class AmazonTest extends Base{
 	
 	@Test(dependsOnMethods = {"proceedtoBuy"})
 	public void selectDeliveryAddress() {
-		Assert.assertTrue(false,"Default delivery address is selected");
 		System.out.println("Executing Select Delivery Address method");
 	}
 	
-	@Test(dependsOnMethods = {"selectDeliveryAddress"})
+	@Test(dependsOnMethods = {"selectDeliveryAddress"}, retryAnalyzer = RetryFailedTestcase.class)
 	public void orderProduct() {
+		Assert.assertEquals(false, true, "Failed to Order Product");
 		System.out.println("Executing Place Order method");
 	}
 	
@@ -44,6 +45,10 @@ public class AmazonTest extends Base{
 		System.out.println("Executing verify Product Rating method");
 	}
 	
+	@Test(invocationCount = 2)
+	public void start() {
+		System.out.println("Executing start method");
+	}
 	
 	
 		
