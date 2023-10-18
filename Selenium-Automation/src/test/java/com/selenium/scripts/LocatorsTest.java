@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,10 +25,10 @@ public class LocatorsTest {
 
 	@Test
 	public void locatorsMethods() throws InterruptedException {
-		
+
 		// Finding an object with linktext locator
 		driver.findElement(By.linkText("Sample Forms")).click();
-		
+
 		// Absolute XPath  --> Always starts root or parent node with a preceding single slash
 		driver.findElement(By.xpath("/html/body/div[3]/div[3]/form/table/tbody/tr/td/div/input")).click();
 		Thread.sleep(1000);
@@ -39,28 +40,78 @@ public class LocatorsTest {
 		// Relative XPath with attributes --> Syntax --> //html tag[@attribute='value']
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("shiva@gmail.com");
 		Thread.sleep(1000);
-		
-		// Relative XPath with 'and' operator
+
+		// Relative XPath with 'and' condition
 		driver.findElement(By.xpath("//input[@name='q1' and @id='q1']")).sendKeys("Test Text");
 		Thread.sleep(1000);
 
-		// Relative XPath with 'or' operator 
+		// Relative XPath with 'or' condition 
 		driver.findElement(By.xpath("//textarea[@name='q2' or @id='q2']")).sendKeys("Test Description");
 		Thread.sleep(1000);
-										// OR with | symbol
+		// OR with | symbol
 		//driver.findElement(By.xpath("//textarea[@name='q2'] | //textarea[@id='q2']")).sendKeys("Test Description");
 		//Thread.sleep(1000);
-		
+
 		// Using ID locator with Select class
 		WebElement dropdown = driver.findElement(By.id("q3"));
 		Select select = new Select(dropdown);
 		select.selectByVisibleText("Third Option");	
 		Thread.sleep(1000);
-		
+
 		// Using CSS Selector - Syntax --> html tag[attribute='value']
 		driver.findElement(By.cssSelector("input[value='First Option']")).click();
-				
 
+		// CSS Selector --> Using # as a replacement for ID attribute
+		//driver.findElement(By.cssSelector("input[id='q5']")).click();
+		driver.findElement(By.cssSelector("input#q5")).click();
+
+		// CSS Selector --> Using . as a replacement for class attribute
+		driver.findElement(By.cssSelector("input.txt_log")).sendKeys("Nikhila");
+
+		// CSS Selector with AND condition
+		driver.findElement(By.cssSelector("input[name='checkbox6[]'][value='First Check Box']")).click();
+		Thread.sleep(2000);
+
+		// CSS Selector with OR condition and text attribute
+		driver.findElement(By.cssSelector("input[text='Second Check Box'],[value='Second Check Box']")).click();
+
+		// CSS Selector with OR condition and innertext attribute
+		driver.findElement(By.cssSelector("input[innertext='Third Check Box'],[value='Third Check Box']")).click();
+
+		// CSS Selector with starts-with method
+		driver.findElement(By.cssSelector("input[value^='Fourth Check']")).click();
+
+		// CSS Selector with ends-with method
+		driver.findElement(By.cssSelector("input[value$='Check Box']")).click();
+
+		// CSS Selector with ends-with method
+		driver.findElement(By.cssSelector("input[value*='Fifth Che']")).click();
+
+		// XPath with starts-with method
+		driver.findElement(By.xpath("//input[starts-with(@value,'Fourth Check')]")).click();
+
+		// XPath with contains method
+		driver.findElement(By.xpath("//input[contains(@value,'Fourth Check')]")).click();
+
+		// Identify the date text field using ID locator
+		driver.findElement(By.id("q7")).sendKeys("10-19-2023");
+		driver.findElement(By.id("q7")).sendKeys(Keys.TAB);
+		
+		// Select value from predefined state dropdown list
+		WebElement predefinedstate = driver.findElement(By.id("q8"));
+		Select state = new Select(predefinedstate);
+		state.selectByVisibleText("IN");
+
+		Thread.sleep(2000);
+		// Select value from predefined country dropdown list
+		WebElement predefinedCountry = driver.findElement(By.id("q9"));
+		Select country = new Select(predefinedCountry);
+		country.selectByVisibleText("India");
+		
+		// Select value from predefined canadian provinces dropdown list
+		WebElement predefinedProvinces = driver.findElement(By.id("q10"));
+		Select provinces = new Select(predefinedProvinces);
+		provinces.selectByVisibleText("Ontario");
 	}
 
 	@BeforeClass
