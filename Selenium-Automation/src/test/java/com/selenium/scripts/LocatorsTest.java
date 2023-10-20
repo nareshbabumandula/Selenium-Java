@@ -1,17 +1,18 @@
 package com.selenium.scripts;
 
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-public class LocatorsTest {
+import com.common.ActionEngine;
+
+public class LocatorsTest extends ActionEngine{
 
 	WebDriver driver;
 
@@ -54,8 +55,7 @@ public class LocatorsTest {
 
 		// Using ID locator with Select class
 		WebElement dropdown = driver.findElement(By.id("q3"));
-		Select select = new Select(dropdown);
-		select.selectByVisibleText("Third Option");	
+		selectValue(dropdown, "Option","Third Option");
 		Thread.sleep(1000);
 
 		// Using CSS Selector - Syntax --> html tag[attribute='value']
@@ -99,19 +99,18 @@ public class LocatorsTest {
 		
 		// Select value from predefined state dropdown list
 		WebElement predefinedstate = driver.findElement(By.id("q8"));
-		Select state = new Select(predefinedstate);
-		state.selectByVisibleText("IN");
+		selectValue(predefinedstate, "Predefined State", "IN");
 
 		Thread.sleep(2000);
 		// Select value from predefined country dropdown list
 		WebElement predefinedCountry = driver.findElement(By.id("q9"));
-		Select country = new Select(predefinedCountry);
-		country.selectByVisibleText("India");
+		selectValue(predefinedCountry, "Predefined Country", "India");
 		
 		// Select value from predefined canadian provinces dropdown list
 		WebElement predefinedProvinces = driver.findElement(By.id("q10"));
-		Select provinces = new Select(predefinedProvinces);
-		provinces.selectByVisibleText("Ontario");
+		selectValue(predefinedProvinces, "Predefined Canadian Provinces", "Ontario");
+		
+		
 	}
 
 	@BeforeClass
@@ -126,6 +125,8 @@ public class LocatorsTest {
 	public void closeBrowser() throws InterruptedException {
 		Thread.sleep(4000);
 		driver.quit();
+		reports.endTest(test);
+		reports.flush();
 	}
 
 }
