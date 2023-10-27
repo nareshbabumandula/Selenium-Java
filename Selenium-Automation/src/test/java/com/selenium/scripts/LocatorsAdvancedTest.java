@@ -82,10 +82,11 @@ public class LocatorsAdvancedTest extends ActionEngine{
 			System.out.println(element.getText());
 			test.log(LogStatus.PASS, "Get Following", "Name attribute value is : " + element.getAttribute("name"));
 		}
-		
+
 		// Click on Sample Forms tab
 		driver.findElement(By.linkText("Sample Forms")).click(); 
-		
+		//driver.findElement(By.partialLinkText("Sample")).click(); 
+
 		// 7. Following-sibling : To find all the nodes after the context node that share the same parent, and are a sibling to the context node.
 		List<WebElement> followingDepartments = driver.findElements(By.xpath("//input[@value='0']/following-sibling::input"));
 
@@ -105,22 +106,46 @@ public class LocatorsAdvancedTest extends ActionEngine{
 		// 9. Preceding : It takes all the nodes that come before the context node. It may be the parent or the grandparent node. 
 		driver.findElement(By.xpath("//input[@type='password']/preceding::input")).clear();
 		driver.findElement(By.xpath("//input[@type='password']/preceding::input")).sendKeys("Suma");
-		
+
 
 		// 10. Parent : To find the parent element of the context node. If the context node itself is ancestor, it won’t have a parent node and would fetch no matching nodes.
 		boolean parent = driver.findElement(By.xpath("//input[@id='q1']/parent::td")).isDisplayed();
 		System.out.println("Parent object display status is : " + parent);
 		test.log(LogStatus.PASS, "Get Parent Display Status", "Parent Object display status is : " + parent);
-		
+
 		// 11. Self : To find the context node, the self is used.
 		boolean self = driver.findElement(By.xpath("//textarea[@id='q2']/self::textarea")).isDisplayed();
 		System.out.println("Self object display status is : " + self);
 		test.log(LogStatus.PASS, "Get Self Object Display Status", "Self Object display status is : " + self);
-		
+
 		List<WebElement> tabs = driver.findElements(By.xpath("//div[@id='header']/ul/li/a"));
 		for (WebElement tab : tabs) {
 			test.log(LogStatus.PASS, "Get tab name", "Tab name is : " + tab.getText());
 		}
+
+		// CSS with OR operator - Type 1
+		driver.findElement(By.cssSelector("input[id='user'],input[class='txt_log']")).clear();
+		driver.findElement(By.cssSelector("input[id='user'],input[class='txt_log']")).sendKeys("Peter");
+		Thread.sleep(2000);
+
+		// CSS with OR operator - Type 2
+		driver.findElement(By.cssSelector("input#user.txt_log")).clear();
+		driver.findElement(By.cssSelector("input#user.txt_log")).sendKeys("Oberlander");
+		Thread.sleep(2000);
+		
+		// CSS with AND operator - Type 1
+		driver.findElement(By.cssSelector("input#user.txt_log")).clear();
+		driver.findElement(By.cssSelector("input#user.txt_log")).sendKeys("Raghavan");
+		Thread.sleep(2000);
+		
+		// CSS with AND operator with multiple attributes - Type 2
+		driver.findElement(By.cssSelector("input#user.txt_log[name='user'][tabindex='1']")).clear();
+		driver.findElement(By.cssSelector("input#user.txt_log[name='user'][tabindex='1']")).sendKeys("Bhavya");
+		Thread.sleep(2000);
+		
+		// Identifying the webelement using its tagname
+		driver.findElement(By.tagName("input")).clear();
+		driver.findElement(By.tagName("input")).sendKeys("Naresh");
 	}
 
 	@BeforeClass

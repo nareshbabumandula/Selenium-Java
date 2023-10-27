@@ -66,7 +66,31 @@ public class DataTypes {
 		byte b5= b4; // unboxing
 		System.out.println("Value of b5 after unboxing is : " +b4);
 		
+		// Arrays are fixed in nature in the sense we can't add or remove the elements from an array once defined
+		// marks integer single dimensional array
+		int[] marks = {30,55,80,60,70}; // declaration and initialization 
+		System.out.println(marks[0]); 
+		System.out.println(marks[1]);
+		System.out.println(marks[2]);
+		System.out.println(marks[3]);
+		System.out.println(marks[4]);
+		//System.out.println(marks[5]); // java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
 		
+		// Array Declaration
+		int[] score;
+		int ranks[];
+		int []users;
+		score = new int[10];
+		int[] employees = new int[4]; // declaration and instantiation
+		employees[0]=111;
+		employees[1]=222;
+		employees[2]=333;
+		employees[3]=444;
+		System.out.println(employees[3]);
+		System.out.println("No of elements in an employees array are : " + employees.length);
+		employees[0]=555;
+		System.out.println(employees[0]);
+	
 	}
 
 }
