@@ -33,7 +33,7 @@ public class StackTest {
 		stack.push(10);
 		stack.push(null);
 		stack.push(null);
-		
+	
 		System.out.println(stack);
 		stack.pop(); //  LIFO (Last-in-first-out) --> Removes the object at the top of this stack and returns that object as the value of this function
 		System.out.println(stack);
