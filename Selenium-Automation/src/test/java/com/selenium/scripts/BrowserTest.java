@@ -6,6 +6,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BrowserTest {
 
 	static WebDriver driver;
@@ -13,19 +15,19 @@ public class BrowserTest {
 	static void launchBrowser(String browser) throws InterruptedException {
 		switch (browser.toLowerCase().trim()) {
 		case "ie":
-			System.setProperty("webdriver.ie.driver", "./drivers/iedriverserer.exe");
+			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
 			break;
 		case "ff":
-			System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			break;
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		case "edge":
-			System.setProperty("webdriver.edge.driver", "./drivers/msedgedriver.exe");
+			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 			break;
 		default:

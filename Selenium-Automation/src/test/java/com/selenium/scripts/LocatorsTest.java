@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 
 import com.common.ActionEngine;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class LocatorsTest extends ActionEngine{
 
 	WebDriver driver;
@@ -115,7 +117,7 @@ public class LocatorsTest extends ActionEngine{
 
 	@BeforeClass
 	public void launchBrowser() {
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://www.mycontactform.com");
